@@ -27,5 +27,8 @@ fn main(argc: int, argv: []*) int {
 
     // Rust-like borrow checker ??
 
+    // u32, usize, i32, isize, bool, etc.
+    // generated variable-length array, memory holders, string and utf8 string
+
     return 0;
 }
