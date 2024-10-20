@@ -1,0 +1,31 @@
+// vim: ft=c
+
+struct vec2 {
+    x, y: int;
+}
+
+fn vec2.add(a: const * const vec2, b: const * const vec2) vec2 {
+    // [snip]
+}
+
+fn vec2.add_mut(a: const * vec2, b: const * const vec2) void {
+    // [snip]
+}
+
+fn main(argc: int, argv: []*) int {
+    x: const * const * char = argv[0];
+
+    _ = 3 + 4; // by default: checked for overflows / underflows
+               // assign to _ = explicit drop result, else warn
+
+    v1: vec2 = { .x = 1, .y = 0 };
+    v2: vec2 = { .x = 2, .y = 4 };
+    // v1 + v2; // NO! -> hidden control flow
+    v3 = vec2.add(v1, v2);
+
+    vec2.add_mut(v1, v2); // Modifies v1
+
+    // Rust-like borrow checker ??
+
+    return 0;
+}
